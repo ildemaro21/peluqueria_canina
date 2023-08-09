@@ -33,6 +33,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnEditar.setText("VER / EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,6 +117,12 @@ public class Principal extends javax.swing.JFrame {
         pantallaRegistro.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        VerDatos pantallaVer = new VerDatos();
+        pantallaVer.setVisible(true);
+        pantallaVer.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
