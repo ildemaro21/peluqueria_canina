@@ -115,13 +115,14 @@ public class Principal extends javax.swing.JFrame {
         Registro pantallaRegistro = new Registro();
         pantallaRegistro.setVisible(true);
         pantallaRegistro.setLocationRelativeTo(null);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         VerDatos pantallaVer = new VerDatos();
         pantallaVer.setVisible(true);
         pantallaVer.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
