@@ -72,6 +72,11 @@ public class VerDatos extends javax.swing.JFrame {
         );
 
         btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +174,24 @@ public class VerDatos extends javax.swing.JFrame {
             mostrarMensaje("Tabla vacia, no hay registros que eliminar", "ERROR AL ELIMINAR", "error");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        //Validar que la tabla no este vacia
+        if(tablaMascotas.getRowCount()>0){
+            //Validar que este seleccionada una fila
+            if(tablaMascotas.getSelectedRow()>-1){
+                int idMascota = Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(), 0)));
+                ModificarDatos modificar = new ModificarDatos();
+                modificar.setVisible(true);
+                modificar.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }else{
+                mostrarMensaje("No ha seleccionado ninguna fila", "ERROR AL ELIMINAR", "error");
+            }
+        }else{
+            mostrarMensaje("Tabla vacia, no hay registros que eliminar", "ERROR AL ELIMINAR", "error");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;

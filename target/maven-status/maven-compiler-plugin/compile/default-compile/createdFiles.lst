@@ -1,8 +1,12 @@
 com\mycompany\peluqueriacanina\gui\VerDatos$2.class
 com\mycompany\peluqueriacanina\gui\VerDatos$4.class
+com\mycompany\peluqueriacanina\gui\ModificarDatos.class
 com\mycompany\peluqueriacanina\logica\Duenio_.class
+com\mycompany\peluqueriacanina\gui\ModificarDatos$2.class
 com\mycompany\peluqueriacanina\logica\Duenio.class
+com\mycompany\peluqueriacanina\gui\ModificarDatos$1.class
 com\mycompany\peluqueriacanina\gui\Registro$3.class
+com\mycompany\peluqueriacanina\gui\VerDatos$5.class
 com\mycompany\peluqueriacanina\gui\Registro$2.class
 com\mycompany\peluqueriacanina\gui\Principal.class
 com\mycompany\peluqueriacanina\persistencia\exceptions\PreexistingEntityException.class
@@ -10,6 +14,7 @@ com\mycompany\peluqueriacanina\gui\VerDatos.class
 com\mycompany\peluqueriacanina\logica\ControladoraLogica.class
 com\mycompany\peluqueriacanina\gui\Registro.class
 com\mycompany\peluqueriacanina\persistencia\exceptions\NonexistentEntityException.class
+com\mycompany\peluqueriacanina\gui\ModificarDatos$3.class
 com\mycompany\peluqueriacanina\gui\Principal$2.class
 com\mycompany\peluqueriacanina\persistencia\exceptions\IllegalOrphanException.class
 com\mycompany\peluqueriacanina\gui\VerDatos$3.class
