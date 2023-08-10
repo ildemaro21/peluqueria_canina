@@ -3,6 +3,8 @@ package com.mycompany.peluqueriacanina.gui;
 import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
 import com.mycompany.peluqueriacanina.logica.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VerDatos extends javax.swing.JFrame {
@@ -72,6 +74,11 @@ public class VerDatos extends javax.swing.JFrame {
         btnEditar.setText("EDITAR");
 
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnAtras.setText("ATRAS");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +152,24 @@ public class VerDatos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        //Validar que la tabla no este vacia
+        if(tablaMascotas.getRowCount()>0){
+            //Validar que este seleccionada una fila
+            if(tablaMascotas.getSelectedRow()>-1){
+                int idMascota = Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(), 0)));
+                controladora.eliminarMascota(idMascota);
+                //Mensaje por pantalla para informar que se realizó la eliminación
+                mostrarMensaje("Se ha eliminado el registro correctamente", "OPERACION EXITOSA!!!", "info");
+                cargarTabla();
+            }else{
+                mostrarMensaje("No ha seleccionado ninguna fila", "ERROR AL ELIMINAR", "error");
+            }
+        }else{
+            mostrarMensaje("Tabla vacia, no hay registros que eliminar", "ERROR AL ELIMINAR", "error");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnEditar;
@@ -178,5 +203,17 @@ public class VerDatos extends javax.swing.JFrame {
             }
         }
         tablaMascotas.setModel(modeloTabla);
+    }
+
+    private void mostrarMensaje(String mensaje, String tituloVentana, String tipo) {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }else if(tipo.equals("error")){
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(tituloVentana);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
     }
 }
