@@ -1,16 +1,19 @@
 package com.mycompany.peluqueriacanina.gui;
 
 import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
+import com.mycompany.peluqueriacanina.logica.Mascota;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class ModificarDatos extends javax.swing.JFrame {
     
     ControladoraLogica controladora = null;
+    int idMascota;
 
-    public ModificarDatos() {
+    public ModificarDatos(int idMascota) {
         controladora = new ControladoraLogica();
         initComponents();
+        cargarDatos(idMascota);
     }
 
     @SuppressWarnings("unchecked")
@@ -324,4 +327,24 @@ public class ModificarDatos extends javax.swing.JFrame {
     private javax.swing.JTextField txtRaza;
     private javax.swing.JTextField txtTelefonoD;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos(int idMascota) {
+        Mascota mascota = controladora.traerMascota(idMascota);
+        txtNombre.setText(mascota.getNombre());
+        txtColor.setText(mascota.getColor());
+        txtRaza.setText(mascota.getRaza());
+        txtNombreD.setText(mascota.getDuenio().getNombre());
+        txtTelefonoD.setText(mascota.getDuenio().getTelefono());
+        txtObservacion.setText(mascota.getDuenio().getObservacion());
+        switch (mascota.getAlergico()) {
+            case "SI" -> cmbAlergico.setSelectedIndex(1);
+            case "NO" -> cmbAlergico.setSelectedIndex(2);
+            default -> cmbAlergico.setSelectedIndex(0);
+        }
+        switch (mascota.getAtencionE()) {
+            case "SI" -> cmbAtencion.setSelectedIndex(1);
+            case "NO" -> cmbAtencion.setSelectedIndex(2);
+            default -> cmbAtencion.setSelectedIndex(0);
+        }
+    }
 }

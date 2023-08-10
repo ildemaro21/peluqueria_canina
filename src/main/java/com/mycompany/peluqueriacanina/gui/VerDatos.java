@@ -181,7 +181,7 @@ public class VerDatos extends javax.swing.JFrame {
             //Validar que este seleccionada una fila
             if(tablaMascotas.getSelectedRow()>-1){
                 int idMascota = Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(), 0)));
-                ModificarDatos modificar = new ModificarDatos();
+                ModificarDatos modificar = new ModificarDatos(idMascota);
                 modificar.setVisible(true);
                 modificar.setLocationRelativeTo(null);
                 this.setVisible(false);
