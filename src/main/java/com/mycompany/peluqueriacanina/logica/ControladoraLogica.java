@@ -30,6 +30,10 @@ public class ControladoraLogica {
     public List<Mascota> traerMascotas() {
         return ctrlPersistencia.traerMascotas();
     }
+
+    public void eliminarMascota(int idMascota) {
+        ctrlPersistencia.eliminarMascota(idMascota);
+    }
     
 
 }
