@@ -39,5 +39,32 @@ public class ControladoraLogica {
         return ctrlPersistencia.traerMascota(idMascota);
     }
     
+    private void modificarMascota(Mascota mascota) {
+        ctrlPersistencia.modificarMascota(mascota);
+    }
+    
+     private Duenio traerDuenio(int id) {
+        return ctrlPersistencia.traerDuenio(id);
+    }
 
+    private void modificarDuenio(Duenio duenio) {
+        ctrlPersistencia.modificarDuenio(duenio);
+    }
+
+    public void modificarDatos(Mascota mascota, String nombre, String raza, String color, String alergico, String atencion, 
+            String nombreD, String telefono, String observacion) {
+        mascota.setNombre(nombre);
+        mascota.setRaza(raza);
+        mascota.setColor(color);
+        mascota.setAlergico(alergico);
+        mascota.setAtencionE(atencion);
+        
+        this.modificarMascota(mascota);
+        Duenio duenio = this.traerDuenio(mascota.getDuenio().getId());
+        duenio.setNombre(nombreD);
+        duenio.setTelefono(telefono);
+        duenio.setObservacion(observacion);
+        this.modificarDuenio(duenio);
+        
+    }
 }
